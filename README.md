@@ -20,7 +20,7 @@ http://www.st.com/en/development-tools/stm32cubemx.html
 
 ![Image of STM32CubeMX](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/STM32CubeMX.png)
 
-Project Location should be at ~/Project.
+Project Location should be at /Users/{User Name}/Project.
 Toolchain/IDE should be SW4STM32.
 Generate Under Root should be selected.
 
