@@ -1,4 +1,5 @@
 # STM32F303RE-Development-on-Mac
+光機電實驗
 STM32CubeMX + CLion + OpenOCD + arm-none-eabi
 
 # To be installed
@@ -31,13 +32,16 @@ Select your project created by STM32CubeMX.
 Select everything under the directory.
 
 ### Install Plugin 
+
 ![Image of preference](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/STM32CubeMX.png)
+
 ![Image of plugin](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20plugin.png)
 
 Go Preferences -> Plugins -> Browse repositories -> search openocd -> find 'OpenOCD + STM32CubeMX support for ARM embedded development' and install it -> Restart CLion
 (I'm using version 1.1 alpha6. [more details about plugin version](https://plugins.jetbrains.com/plugin/10115-openocd--stm32cubemx-support-for-arm-embedded-development))
 
 ### Setting OpenOCD path and CMake
+
 ![Image of openocd path](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20openocd%20path.png)
 
 Go Preferences -> Build,Execution,Deployment -> Bulid Tools -> OpenOCD Support
@@ -45,6 +49,7 @@ Go Preferences -> Build,Execution,Deployment -> Bulid Tools -> OpenOCD Support
 Create a public toolchain setting file toolchain-arm-eabi-gcc.cmake 
 You can create by yourself or download [this](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/toolchain-arm-eabi-gcc.cmake)
 Then go Preferences -> Build,Execution,Deployment -> CMake 
+
 ![Image of cmake](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20cmake.png)
 Add this parameter to CMake options
 
@@ -61,7 +66,8 @@ Run -> Edit Configurations... -> OCD {Project name} ->Board config file
 Those config file will be found in /usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/board/.
 We are using STM32F303RE, so we may choose st_nucleo_f3.cfg or stm32f3discovery.cfg.
 However, if you choose stm32f3discovery.cfg, there may be some errors.
-To fix it (imformation from [here](http://www.openstm32.org/forumthread562)), you can find stlink-v2.cfg in /usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/interface/, and then find this line:
+To fix it (imformation from [here](http://www.openstm32.org/forumthread562)), you can find stlink-v2.cfg in /usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/interface/.
+Find this line:
 
     hla_vid_pid 0x0483 0x3748
 Change the line to:
