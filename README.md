@@ -1,12 +1,16 @@
 # STM32F303RE-Development-on-Mac
 光機電實驗
-STM32CubeMX + CLion + OpenOCD + arm-none-eabi
+STM32CubeMX + CLion + OpenOCD + gcc-arm-embedded
 
 # To be installed
 
 ### CLion 
 I'm using Version 2018.2 EAP (182.2574.4). 
+
 It's an early access program now (5/25/2018), and I get this version from (https://www.jetbrains.com/clion/nextversion/)
+
+(EAP version doesn't require license. Stable version requires license. If you're a student, you can get license by signing up using school email address. [more information](https://www.jetbrains.com/student/))
+
 ### GNU Arm Embedded Toolchain 
     brew install caskroom/cask/gcc-arm-embedded
 Then you can find it in /usr/local/Caskroom/gcc-arm-embedded
@@ -37,7 +41,7 @@ Just press OK.
 
 ### Install Plugin 
 
-![Image of preference](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/STM32CubeMX.png)
+![Image of preference](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20preference.png)
 
 ![Image of plugin](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20plugin.png)
 
@@ -53,7 +57,7 @@ Go Preferences -> Build,Execution,Deployment -> Bulid Tools -> OpenOCD Support
 
 Create a public toolchain setting file toolchain-arm-eabi-gcc.cmake 
 
-You can create by yourself or download [this](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/toolchain-arm-eabi-gcc.cmake)
+You can create it by yourself or download [this](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/toolchain-arm-eabi-gcc.cmake)
 
 Then go Preferences -> Build,Execution,Deployment -> CMake 
 
@@ -88,6 +92,7 @@ We are using STM32F303RE, so we can choose st_nucleo_f3.cfg or stm32f3discovery.
 However, if you choose stm32f3discovery.cfg, there might be some errors.
 
 To fix it (imformation from [here](http://www.openstm32.org/forumthread562)), you can find stlink-v2.cfg in /usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/interface/.
+
 Find this line:
 
     hla_vid_pid 0x0483 0x3748
@@ -95,7 +100,9 @@ Change the line to:
 
     hla_vid_pid 0x0483 0x374b
     
-### Change your code in main.c or other source file if needed
+### Add your code
+
+Change your code in main.c or other source file if needed
     
 ### Build project
 
@@ -113,7 +120,7 @@ When you encounter an error like this:
 
 This error seems to be caused by update CMake project with STM32CubeMX project repeatly.
 
-To fix this:
+## To fix this:
 
 ### Reimport your project
 
@@ -123,7 +130,9 @@ Close CLion, and delete your project at welcome page. Then import your project a
 
 Go Tools -> Update CMake project with STM32CubeMX project
 
-### Change your code in main.c or other source file if needed
+### Add your code
+
+Change your code in main.c or other source file if needed
 
 ### Build project
 
