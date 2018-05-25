@@ -49,15 +49,17 @@ Go Preferences -> Plugins -> Browse repositories -> search openocd -> find 'Open
 
 (I'm using version 1.1 alpha6. [more details about plugin version](https://plugins.jetbrains.com/plugin/10115-openocd--stm32cubemx-support-for-arm-embedded-development))
 
-### Setting OpenOCD path and CMake
+### Setting OpenOCD path 
 
 ![Image of openocd path](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20openocd%20path.png)
 
 Go Preferences -> Build,Execution,Deployment -> Bulid Tools -> OpenOCD Support
 
-Create a public toolchain setting file toolchain-arm-eabi-gcc.cmake 
+### Create a public toolchain setting file
 
 You can create it by yourself or download [this](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/toolchain-arm-eabi-gcc.cmake)
+
+### Adding parameter to CMake options
 
 Then go Preferences -> Build,Execution,Deployment -> CMake 
 
@@ -66,6 +68,7 @@ Then go Preferences -> Build,Execution,Deployment -> CMake
 Add this parameter to CMake options
 
     -DCMAKE_TOOLCHAIN_FILE=<path to toolchain-arm-eabi-gcc.cmake>
+    
 For me, I put the file in ~/Project/
 
     -DCMAKE_TOOLCHAIN_FILE=~/Project/toolchain-arm-eabi-gcc.cmake
@@ -83,6 +86,7 @@ Choose st_nucleo_f3.cfg or stm32f3discovery.cfg, or you can set this later.
 ### Setting OpenOCD configuration
 
 Run -> Edit Configurations... -> OCD {Project name} ->Board config file 
+
 ![Image of board config](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20board%20config.png)
 
 Those config file will be found in /usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/board/
@@ -138,5 +142,16 @@ Change your code in main.c or other source file if needed
 
 Go run -> Build 
 
+# Reference
+
+https://github.com/elmot/clion-embedded-arm/blob/master/USAGE.md
+
+http://quotation.github.io/development/2017/01/13/embedded-development-in-clion.html
+
+https://blog.jetbrains.com/clion/2016/06/clion-for-embedded-development/
+
+https://blog.jetbrains.com/clion/2017/12/clion-for-embedded-development-part-ii/
+
+https://github.com/cilegann/2018SPRING_Opto-mechatronics-Labs
 
 
