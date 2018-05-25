@@ -77,11 +77,15 @@ Close CLion, and delete your project at welcome page. Then import it as a new CM
 
 # CLion Update CMake project with STM32CubeMX project again
 
+Go Tools -> Update CMake project with STM32CubeMX project
+
 # CLion Build project
 
 Go run -> Build 
 
-# Finish! Your Binary file will be in ~/Project/cmake-build-debug/. Just drag it in to your ARM device.
+# Finish! 
+
+Your Binary file will be in ~/Project/cmake-build-debug/. Just drag it in to your ARM device.
 
 
 
