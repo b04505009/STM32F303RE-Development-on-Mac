@@ -7,7 +7,7 @@ STM32CubeMX + CLion + OpenOCD + gcc-arm-embedded
 ### CLion 
 I'm using Version 2018.2 EAP (182.2574.4). 
 
-It's an early access program now (5/25/2018), and I get this version from (https://www.jetbrains.com/clion/nextversion/)
+It's an early access program now (5/25/2018), and I get this version from https://www.jetbrains.com/clion/nextversion/
 
 (EAP version doesn't require license. Stable version requires license. If you're a student, you can get license by signing up using school email address. [more information](https://www.jetbrains.com/student/))
 
