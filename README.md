@@ -30,8 +30,10 @@ Generate Under Root should be selected.
 
 ### Import project
 Select your project created by STM32CubeMX.
+
 ![Image of import](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20import.png)
-Select everything under the directory.
+
+Just press OK.
 
 ### Install Plugin 
 
@@ -40,6 +42,7 @@ Select everything under the directory.
 ![Image of plugin](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20plugin.png)
 
 Go Preferences -> Plugins -> Browse repositories -> search openocd -> find 'OpenOCD + STM32CubeMX support for ARM embedded development' and install it -> Restart CLion
+
 (I'm using version 1.1 alpha6. [more details about plugin version](https://plugins.jetbrains.com/plugin/10115-openocd--stm32cubemx-support-for-arm-embedded-development))
 
 ### Setting OpenOCD path and CMake
@@ -63,6 +66,16 @@ For me, I put the file in ~/Project/
 
     -DCMAKE_TOOLCHAIN_FILE=~/Project/toolchain-arm-eabi-gcc.cmake
 
+### Update CMake project with STM32CubeMX project
+
+![Image of update project](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20update%20project.png)
+
+Go Tools -> Update CMake project with STM32CubeMX project
+
+![Image of board config2](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20board%20config2.png)
+
+Choose st_nucleo_f3.cfg or stm32f3discovery.cfg, or you can set this later.
+
 ### Setting OpenOCD configuration
 
 Run -> Edit Configurations... -> OCD {Project name} ->Board config file 
@@ -81,27 +94,40 @@ Find this line:
 Change the line to:
 
     hla_vid_pid 0x0483 0x374b
+    
+### Change your code in main.c or other source file if needed
+    
+### Build project
 
-### Update CMake project with STM32CubeMX project
+Go run -> Build 
 
-![Image of update project](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20update%20project.png)
+### Finish! 
 
-Go Tools -> Update CMake project with STM32CubeMX project
+Your Binary file will be in ~/Project/cmake-build-debug/. Just drag it in to your ARM device.
+
+# Common Errors
+
+When you encounter an error like this:
+
+![Image of board config](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20error.png)
+
+This error seems to be caused by update CMake project with STM32CubeMX project repeatly.
+
+To fix this:
 
 ### Reimport your project
 
-Close CLion, and delete your project at welcome page. Then import it as a new CMake project. 
-Remember to select everything under the directory.
+Close CLion, and delete your project at welcome page. Then import your project as a new CMake project. 
 
-### Update CMake project with STM32CubeMX project again
+### Update CMake project with STM32CubeMX project
 
 Go Tools -> Update CMake project with STM32CubeMX project
+
+### Change your code in main.c or other source file if needed
 
 ### Build project
 
 Go run -> Build 
 
-# Finish! 
 
-Your Binary file will be in ~/Project/cmake-build-debug/. Just drag it in to your ARM device.
 
