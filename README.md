@@ -16,25 +16,28 @@ Then you can find it in /usr/local/Cellar/open-ocd
 http://www.st.com/en/development-tools/stm32cubemx.html
 
 # Generate code from STM32CubeMX
+
 ![Image of STM32CubeMX](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/STM32CubeMX.png)
 
 Project Location should be at ~/Project.
 Toolchain/IDE should be SW4STM32.
 Generate Under Root should be selected.
 
-# CLion Import project
+# CLion 
+
+### Import project
 Select your project created by STM32CubeMX.
 ![Image of import](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20import.png)
 Select everything under the directory.
 
-# CLion install Plugin 
+### Install Plugin 
 ![Image of preference](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/STM32CubeMX.png)
 ![Image of plugin](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20plugin.png)
 
 Go Preferences -> Plugins -> Browse repositories -> search openocd -> find 'OpenOCD + STM32CubeMX support for ARM embedded development' and install it -> Restart CLion
 (I'm using version 1.1 alpha6.[more details for plugin version](https://plugins.jetbrains.com/plugin/10115-openocd--stm32cubemx-support-for-arm-embedded-development))
 
-# CLion setting OpenOCD path and CMake
+### Setting OpenOCD path and CMake
 ![Image of openocd path](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20openocd%20path.png)
 
 Go Preferences -> Build,Execution,Deployment -> Bulid Tools -> OpenOCD Support
@@ -50,7 +53,7 @@ For me, I put the file under ~/Project/
 
     -DCMAKE_TOOLCHAIN_FILE=~/Project/toolchain-arm-eabi-gcc.cmake
 
-# CLion setting OpenOCD configuration
+### Setting OpenOCD configuration
 
 Run -> Edit Configurations... -> OCD {Project name} ->Board config file 
 ![Image of board config](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20board%20config.png)
@@ -65,21 +68,21 @@ Change the line to:
 
     hla_vid_pid 0x0483 0x374b
 
-# CLion Update CMake project with STM32CubeMX project
+### Update CMake project with STM32CubeMX project
 
 ![Image of update project](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20update%20project.png)
 
 Go Tools -> Update CMake project with STM32CubeMX project
 
-# CLion Reimport your project
+### Reimport your project
 
 Close CLion, and delete your project at welcome page. Then import it as a new CMake project. Remember to select everything under the directory.
 
-# CLion Update CMake project with STM32CubeMX project again
+### Update CMake project with STM32CubeMX project again
 
 Go Tools -> Update CMake project with STM32CubeMX project
 
-# CLion Build project
+### Build project
 
 Go run -> Build 
 
