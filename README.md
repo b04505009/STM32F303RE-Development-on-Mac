@@ -122,7 +122,7 @@ When you encounter an error like this:
 
 ![Image of board config](https://github.com/b04505009/STM32F303RE-Development-on-Mac/blob/master/CLion%20error.png)
 
-This error seems to be caused by update CMake project with STM32CubeMX project repeatly.
+This error seems to be caused by updating CMake project with STM32CubeMX project repeatly.
 
 ## To fix this:
 
